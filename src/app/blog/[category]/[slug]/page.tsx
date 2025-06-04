@@ -3,6 +3,7 @@ import { formatDate, getBlogPosts } from "../../utils";
 import Header from "@/components/Header";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
+import { CustomMDX } from "@/components/mdx";
 
 type Params = Promise<{ slug: string }>;
 
@@ -37,7 +38,9 @@ export default async function SinglePostPage({ params }: { params: Params }) {
       </Header>
 
       <Container>
-        <article>content</article>
+        <article className="prose">
+          <CustomMDX source={post.content} />
+        </article>
       </Container>
     </>
   );
