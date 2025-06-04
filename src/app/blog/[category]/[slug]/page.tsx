@@ -7,6 +7,14 @@ import { CustomMDX } from "@/components/mdx";
 
 type Params = Promise<{ slug: string }>;
 
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.metadata.slug,
+  }));
+}
+
 export default async function SinglePostPage({ params }: { params: Params }) {
   const { slug } = await params;
 

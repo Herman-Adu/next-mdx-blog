@@ -7,6 +7,14 @@ import Header from "@/components/Header";
 
 type Params = Promise<{ category: string }>;
 
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    category: post.metadata.category,
+  }));
+}
+
 export default async function CategoriesPage({ params }: { params: Params }) {
   const { category } = await params;
 
