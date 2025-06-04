@@ -16,6 +16,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
 import { ModeToggle } from "./ui/mode-toggle";
+import Image from "next/image";
 
 const post: { title: string; href: string; description: string }[] = [
   {
@@ -62,9 +63,24 @@ export function MainNav({ className }: { className?: string }) {
       )}
     >
       <Link href={"/"}>
-        <div className="flex items-center justify-between w-32">
-          <Icons.logo className="h-6 w-6" />
-          <p>Coding Jitsu</p>
+        <div className="flex items-center justify-between w-28">
+          {/* <Icons.logo className="h-6 w-6" /> */}
+          {/* <img src="/adudev-logo.png" alt="" className="h-10 w-10" /> */}
+          <Image
+            src="/adudev-light-Logo.png"
+            alt="logo"
+            width={40}
+            height={40}
+            className="hidden dark:block"
+          />
+          <Image
+            src="/adudev-Logo.png"
+            alt="logo"
+            width={40}
+            height={40}
+            className="block dark:hidden"
+          />
+          <p>Adu Dev</p>
         </div>
       </Link>
       <NavigationMenu viewport={false}>

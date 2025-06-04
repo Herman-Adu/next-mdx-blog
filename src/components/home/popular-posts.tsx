@@ -11,7 +11,7 @@ export default function PopularPosts() {
           key={index}
           className="flex items-center gap-2 group cursor-pointer py-2"
         >
-          <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-all" />
+          <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 group-hover:text-orange-400 transition-all " />
           <p>{post.title}</p>
         </li>
       ))}

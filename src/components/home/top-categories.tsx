@@ -3,14 +3,14 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 
 export default function TopCatogories() {
-  console.log("Top Cat: ", categories);
+  //console.log("Top Cat: ", categories);
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2">
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-4">
       {categories.map((category) => (
         <Button
           key={category}
           variant={"secondary"}
-          className="hover:scale-110 transition-all"
+          className="hover:scale-105 transition-all"
           asChild
         >
           <Link href={`/blog/${category}`}>{category}</Link>
