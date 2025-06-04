@@ -6,15 +6,6 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 
-// latest post
-/* function LatestPost() {
-  return (
-    <>
-      <LatestPost />
-    </>
-  );
-} */
-
 // custom table function
 function Table({ data }: any) {
   // create header row
@@ -123,7 +114,6 @@ const components = {
   code: Code,
   blockquote: Blockquote,
   table: Table,
-  //latestPost: LatestPost,
 };
 
 export function CustomMDX(props: any) {

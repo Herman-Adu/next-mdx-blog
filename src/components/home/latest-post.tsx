@@ -6,7 +6,9 @@ export default function LatestPost() {
 
   return (
     <>
-      <h1>Recently Publiched</h1>
+      <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
+        Recently Published
+      </h1>
 
       {latestposts
         .sort((a, b) => {
