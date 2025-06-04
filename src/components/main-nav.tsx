@@ -17,42 +17,7 @@ import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
 import { ModeToggle } from "./ui/mode-toggle";
 import Image from "next/image";
-
-const post: { title: string; href: string; description: string }[] = [
-  {
-    title: "React",
-    href: "/blog/react",
-    description:
-      "Learn React.js and Next.js in a simple way to understand articles",
-  },
-  {
-    title: "Javascript",
-    href: "/blog/javascript",
-    description: "Learn what are new in the javascript world",
-  },
-  {
-    title: "CSS",
-    href: "/blog/css",
-    description: "Everything about CSS and the new features.",
-  },
-  {
-    title: "Performance",
-    href: "/blog/performance",
-    description: "How to make your next app Blazing fast",
-  },
-  {
-    title: "Animation",
-    href: "/blog/animations",
-    description:
-      "Everything you need to know about animations. We are going to learn about animation library like framer motion, GSAP and many more.",
-  },
-  {
-    title: "Career",
-    href: "/blog/career",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-];
+import { POSTS } from "@/lib/constants";
 
 export function MainNav({ className }: { className?: string }) {
   return (
@@ -64,8 +29,6 @@ export function MainNav({ className }: { className?: string }) {
     >
       <Link href={"/"}>
         <div className="flex items-center justify-between w-28">
-          {/* <Icons.logo className="h-6 w-6" /> */}
-          {/* <img src="/adudev-logo.png" alt="" className="h-10 w-10" /> */}
           <Image
             src="/adudev-light-Logo.png"
             alt="logo"
@@ -80,7 +43,7 @@ export function MainNav({ className }: { className?: string }) {
             height={40}
             className="block dark:hidden"
           />
-          <p>Adu Dev</p>
+          <p>AduDev</p>
         </div>
       </Link>
       <NavigationMenu viewport={false}>
@@ -89,7 +52,7 @@ export function MainNav({ className }: { className?: string }) {
             <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {post.map((post) => (
+                {POSTS.map((post) => (
                   <ListItem
                     key={post.title}
                     title={post.title}

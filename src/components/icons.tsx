@@ -14,6 +14,7 @@ export const Icons = {
   rss: Rss,
   arrowRight: ArrowRight,
   Twitter: Twitter,
+
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
