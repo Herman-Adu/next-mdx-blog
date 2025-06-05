@@ -1,3 +1,5 @@
+"use client";
+
 import { POSTS } from "@/lib/constants";
 
 import Image from "next/image";
@@ -5,8 +7,16 @@ import { Icons } from "./icons";
 import Link from "next/link";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { createSubscriber } from "@/lib/actions";
+//import { useFormState } from "react-dom";
+import { useActionState } from "react";
 
 export default function Footer() {
+  const initialState = { message: "", errors: {} };
+  //const [state, dispatch] = useFormState(createSubscriber, initialState);
+
+  const [state, dispatch] = useActionState(createSubscriber, initialState);
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -123,7 +133,8 @@ export default function Footer() {
               news and updates.
             </p>
 
-            <form>
+            {/* <form action={dispatch}> */}
+            <form action={dispatch}>
               <div className="flex space-x-2">
                 <Input
                   type="email"
@@ -136,6 +147,26 @@ export default function Footer() {
                 />
 
                 <Button>Subscribe</Button>
+              </div>
+
+              <div
+                id="email-error"
+                aria-label="polite"
+                aria-atomic="true"
+                className="px-1"
+              >
+                {state?.errors?.email && (
+                  <p
+                    key={state.errors.email[0]}
+                    className="text-xs text-red-500"
+                  >
+                    {state.errors.email[0]}
+                  </p>
+                )}
+
+                {!state?.errors?.email && (
+                  <p className="text-xs text-green-500">{state?.message}</p>
+                )}
               </div>
             </form>
           </div>
