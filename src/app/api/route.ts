@@ -33,6 +33,7 @@ export async function POST(request: Request) {
     }
   } catch (error) {
     console.error("Error updating page view", error);
+
     return new Response("Failed to post to DB", { status: 500 });
   }
 

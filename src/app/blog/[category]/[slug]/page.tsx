@@ -28,7 +28,7 @@ export default async function SinglePostPage({ params }: { params: Params }) {
   return (
     <>
       <ReportViews
-        slug={slug}
+        slug={post.slug}
         title={post.metadata.title}
         category={post.metadata.category}
       />

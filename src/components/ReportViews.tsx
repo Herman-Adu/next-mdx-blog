@@ -20,7 +20,6 @@ export default function ReportViews({
           headers: {
             "Content-Type": "application/json",
           },
-
           body: JSON.stringify({ slug, title, category }),
         });
       } catch (error) {
