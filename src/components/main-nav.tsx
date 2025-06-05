@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-//import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react";
 
 import {
   NavigationMenu,
@@ -13,6 +12,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+
 import { cn } from "@/lib/utils";
 import { Icons } from "./icons";
 import { ModeToggle } from "./ui/mode-toggle";
@@ -69,7 +69,7 @@ export function MainNav({ className }: { className?: string }) {
               asChild
               className={navigationMenuTriggerStyle()}
             >
-              <Link href="/docs">About</Link>
+              <Link href="/about">About</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
