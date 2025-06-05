@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
+import ReportViews from "@/components/ReportViews";
 
 type Params = Promise<{ slug: string }>;
 
@@ -26,6 +27,11 @@ export default async function SinglePostPage({ params }: { params: Params }) {
 
   return (
     <>
+      <ReportViews
+        slug={slug}
+        title={post.metadata.title}
+        category={post.metadata.category}
+      />
       <Header>
         <Container>
           <BreadcrumbWithCustomSeparator
