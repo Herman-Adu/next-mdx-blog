@@ -158,14 +158,16 @@ export default function Footer() {
                 {state?.errors?.email && (
                   <p
                     key={state.errors.email[0]}
-                    className="text-xs text-red-500"
+                    className="text-xs text-red-500 mt-2"
                   >
                     {state.errors.email[0]}
                   </p>
                 )}
 
                 {!state?.errors?.email && (
-                  <p className="text-xs text-green-500">{state?.message}</p>
+                  <p className="text-xs text-green-500 mt-2">
+                    {state?.message}
+                  </p>
                 )}
               </div>
             </form>
