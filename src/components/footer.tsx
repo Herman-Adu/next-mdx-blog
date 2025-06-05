@@ -15,7 +15,10 @@ export default function Footer() {
   const initialState = { message: "", errors: {} };
   //const [state, dispatch] = useFormState(createSubscriber, initialState);
 
-  const [state, dispatch] = useActionState(createSubscriber, initialState);
+  const [state, dispatchFormAction] = useActionState(
+    createSubscriber,
+    initialState
+  );
 
   const currentYear = new Date().getFullYear();
 
@@ -134,7 +137,7 @@ export default function Footer() {
             </p>
 
             {/* <form action={dispatch}> */}
-            <form action={dispatch}>
+            <form action={dispatchFormAction}>
               <div className="flex space-x-2">
                 <Input
                   type="email"

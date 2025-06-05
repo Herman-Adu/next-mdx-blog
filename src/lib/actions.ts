@@ -59,6 +59,11 @@ export async function createSubscriber(prevState: State, formData: FormData) {
           return {
             message: "Email already Exist in the DB",
           };
+
+          //   toast({
+          //     variant: "destructive",
+          //     description: "Email already Exist in the DB",
+          //   });
         }
       }
     }
