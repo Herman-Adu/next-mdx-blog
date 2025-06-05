@@ -21,12 +21,13 @@ export default async function AboutPage() {
           </Header>
         </Container>
       </div>
-      <div className="container max-w-6xl py-6 lg:py-10">
-        <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-          <div className="min-w-48 max-w-48 flex flex-col gap-2">
-            <p className="text-muted-foreground text-center break-words">
+      <div className="container max-w-6xl mx-auto py-6 lg:py-10">
+        {/* <div className="flex flex-col md:flex-row gap-8 items-center md:items-start"> */}
+        <div className="flex flex-col gap-8 px-12">
+          <div className="flex flex-col gap-2">
+            <h1 className="text-2xl text-muted-foreground break-words">
               Software Developer
-            </p>
+            </h1>
           </div>
           <p className="text-muted-foreground text-lg py-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
