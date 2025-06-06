@@ -15,6 +15,15 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: { params: Params }) {
+  const { category } = await params;
+
+  return {
+    title: category.toLocaleUpperCase(),
+    description: `All articles regarding ${category}`,
+  };
+}
+
 export default async function CategoriesPage({ params }: { params: Params }) {
   const { category } = await params;
 
