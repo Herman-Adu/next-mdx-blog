@@ -1,4 +1,4 @@
-import { db } from "@/db";
+import prisma from "@/db";
 
 /* export async function GET() {
   return new Response("Hello", { status: 200 });
@@ -6,7 +6,7 @@ import { db } from "@/db";
 
 export async function GET() {
   try {
-    const data = await db.blog.findMany({
+    const data = await prisma.blog.findMany({
       take: 10,
       select: { title: true, category: true, slug: true },
       orderBy: [{ view_count: "desc" }],
@@ -24,13 +24,13 @@ export async function POST(request: Request) {
 
   try {
     // find the slug of the visited page
-    const existingPost = await db.blog.findUnique({
+    const existingPost = await prisma.blog.findUnique({
       where: { slug: slug },
     });
 
     if (existingPost) {
       // blog page exists
-      await db.blog.update({
+      await prisma.blog.update({
         where: { slug: slug },
         data: {
           view_count: { increment: 1 },
@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       });
     } else {
       // new blog page - create new row pass in details
-      await db.blog.create({
+      await prisma.blog.create({
         data: {
           slug: slug,
           title: title,
@@ -49,8 +49,8 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error updating page view", error);
 
-    return new Response("Failed to post to DB", { status: 500 });
+    return new Response("Failed to post to prisma", { status: 500 });
   }
 
-  return new Response("Successfully posted to DB", { status: 200 });
+  return new Response("Successfully posted to prisma", { status: 200 });
 }

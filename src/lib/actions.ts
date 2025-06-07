@@ -1,6 +1,6 @@
 "use server";
 
-import { db } from "@/db";
+import prisma from "@/db";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
@@ -41,7 +41,7 @@ export async function createSubscriber(prevState: State, formData: FormData) {
 
   //save email to database
   try {
-    await db.subscriber.create({
+    await prisma.subscriber.create({
       data: {
         email: email,
       },
