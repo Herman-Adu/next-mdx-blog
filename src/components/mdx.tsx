@@ -10,6 +10,7 @@ import { highlight } from "sugar-high";
 
 import Alert from "./alert";
 import Greetings from "./greetings";
+//import RelatedPosts from "./related-posts";
 
 // custom table function
 function Table({ data }: any) {
@@ -147,6 +148,7 @@ const components = {
   table: Table,
   Alert,
   Greetings,
+  //RelatedPosts,
 };
 
 export function CustomMDX(props: any) {

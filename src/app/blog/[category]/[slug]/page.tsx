@@ -6,11 +6,13 @@ import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
 import ReportViews from "@/components/ReportViews";
 import { baseUrl } from "@/app/sitemap";
+import RelatedPosts from "../../components/related-posts";
 
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
+  //console.log("Posts: ", posts);
 
   return posts.map((post) => ({
     slug: post.metadata.slug,
@@ -35,6 +37,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     publishedAt: publishedTime,
     summary: description,
     image,
+    //related: related,
   } = post.metadata;
 
   // get image
@@ -124,6 +127,13 @@ export default async function SinglePostPage({ params }: { params: Params }) {
         <article className="prose">
           <CustomMDX source={post.content} />
         </article>
+      </Container>
+
+      <Container>
+        <RelatedPosts
+          category={post.metadata.category}
+          title={post.metadata.title}
+        />
       </Container>
     </>
   );

@@ -19,7 +19,7 @@ export default function CardCategory({
   summary,
   date,
 }: CardCategoryProps) {
-  console.log("Title: ", title);
+  //console.log("Title: ", title);
   return (
     <Card className="w-[350px] h-[290px] shadow-lg">
       <CardHeader>
