@@ -5,6 +5,8 @@ import React from "react";
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
+import Alert from "./alert";
+
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 
@@ -142,6 +144,7 @@ const components = {
   code: Code,
   blockquote: Blockquote,
   table: Table,
+  Alert,
 };
 
 export function CustomMDX(props: any) {
