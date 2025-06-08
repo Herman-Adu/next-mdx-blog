@@ -5,10 +5,11 @@ import React from "react";
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
-import Alert from "./alert";
-
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
+
+import Alert from "./alert";
+import Greetings from "./greetings";
 
 // custom table function
 function Table({ data }: any) {
@@ -145,6 +146,7 @@ const components = {
   blockquote: Blockquote,
   table: Table,
   Alert,
+  Greetings,
 };
 
 export function CustomMDX(props: any) {
