@@ -74,6 +74,28 @@ export default async function SinglePostPage({ params }: { params: Params }) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `${baseUrl}${post.metadata.image}`
+              : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+            url: `${baseUrl}/blog/${post.metadata.category}/${post.slug}`,
+            author: {
+              "@type": "Person",
+              name: "Adu Dev Blog",
+            },
+          }),
+        }}
+      />
       <ReportViews
         slug={post.slug}
         title={post.metadata.title}
