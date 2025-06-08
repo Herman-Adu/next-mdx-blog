@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React from "react";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -65,9 +67,9 @@ function CustomLink(props: any) {
 }
 
 // rounded custom images function
-function RoundedImage(props: any) {
+/* function RoundedImage(props: any) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
-}
+} */
 
 // run javascript string manipulation against str
 function slugify(str: string) {
@@ -102,6 +104,32 @@ function createHeading(level: number) {
   return Heading;
 }
 
+// custom images function
+function CustomImage(props: ImageProps) {
+  // Aspect ratio of a default landscape photo
+  const defaultSize = [400, 300];
+
+  const [width, height] =
+    typeof props.title === "string" && /^\d*x\d*$/.test(props.title as string)
+      ? props.title.split("x").map((n) => parseInt(n))
+      : defaultSize;
+
+  return (
+    <span
+      className="flex flex-row justify-center "
+      style={{ width: "100%", marginTop: "20px", marginBottom: "20px" }}
+    >
+      <Image
+        sizes="100vw"
+        width={width}
+        height={height}
+        className="mt-4"
+        {...(props as ImageProps)}
+      />
+    </span>
+  );
+}
+
 const components = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -109,7 +137,7 @@ const components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  Image: RoundedImage,
+  img: CustomImage,
   a: CustomLink,
   code: Code,
   blockquote: Blockquote,

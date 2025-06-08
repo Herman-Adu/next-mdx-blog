@@ -210,7 +210,7 @@
 
 .prose img {
   /* Don't apply styles to next/image */
-  @apply m-0;
+  @apply m-0 rounded-1xl;
 }
 
 .prose p {
